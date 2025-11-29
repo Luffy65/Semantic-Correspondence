@@ -1,4 +1,5 @@
-#TODO: To correct 
+#TODO: Correct this?
+
 class SemanticCorrespondenceDataset(Dataset):
     def __init__(self, dataset_name, split='train', transforms=None):
         """
