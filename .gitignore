@@ -1,4 +1,8 @@
 __pycache__/
 ._.DS_Store
 .DS_Store
+*.json
+# Don't upload model parameters (checkpoints)
 checkpoints/
+# Don't upload the dataset
+/datasets/SPair-71k*

@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Alpher and Gamow(2005)]{Alpher05}
+FirstName Alpher and FirstName Gamow.
+\newblock Can a computer frobnicate?
+\newblock In \emph{CVPR}, pages 234--778, 2005.
+
+\end{thebibliography}
