@@ -2,14 +2,6 @@
 
 Project for the AML course
 
-## How to run
-
-First, install requirements.txt:
-
-```bash
-pip install -r requirements.txt
-```
-
 ## Colab wandb
 
 ```url
@@ -34,3 +26,5 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 ```
 
 ## TODO
+
+[ ] Revise the feature extraction and the PCK calculation part.
