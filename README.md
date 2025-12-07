@@ -28,3 +28,5 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 ## TODO
 
 [ ] Revise the feature extraction and the PCK calculation part.
+    [ ] Why is SAM so bad? Should we give it the prompts?
+    [ ] Evaluate SAM 3 as well (project extension)
