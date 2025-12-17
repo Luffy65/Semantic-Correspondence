@@ -37,10 +37,8 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
     train.ipynb
   
 ### How to run
-- compile and run the main_alt() --> the alternative version of main with parameters passed through arguments instead of bash 
+- run the last cells at the bottom of the page with pre setted configurations. REMEMBER to set debug=False in the main_alt() method.
+- DEBUG MODE : set debug=True in the main_alt() method
   
 ### Problems
-- it works inly with dinov3 (weird!)
-- if u try with sam it says that sam does not have any "block" as layer --> not true
-- probably it run only the first epoch and not continue to the second and so on
-- ALWAYS COMPILE AND RUN THE SpairDataset class in the file before running the main
+- tensor dimension problem for SAM
