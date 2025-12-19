@@ -12,7 +12,7 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 
 ### Extension on VS-code
 
-```
+```bash
     Better comments
 ```
 
@@ -30,3 +30,18 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 [ ] Revise the feature extraction and the PCK calculation part.
     [ ] Why is SAM so bad? Should we give it the prompts?
     [ ] Evaluate SAM 3 as well (project extension)
+
+## TASK 2 - LIGHT FINETUNING
+  
+### Source
+
+train.ipynb
+  
+### How to run
+
+- run the last cells at the bottom of the page with preset configurations. REMEMBER to set debug=False in the main_alt() method if you don't want to debug.
+- DEBUG MODE : set debug=True in the main_alt() method.
+  
+### Problems
+
+- tensor dimension problem for SAM
