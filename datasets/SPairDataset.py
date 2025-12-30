@@ -7,7 +7,7 @@ import torch
 import glob
 import json
 import os
-import torch.nn.functional as F
+
 """SPair-71k Dataset class, old version commented out below."""
 # class Normalize(object):
 #     def __init__(self, image_keys):
