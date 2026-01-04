@@ -10,8 +10,18 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 
 ## TODO
 
-- [ ] Revise the feature extraction and the PCK calculation part in task 1.
-    - [ ] Why is SAM so bad? Should we give it the prompts?
-    - [ ] Evaluate SAM 3 as well (project extension).
-- [ ] (for both task 1 and task 2) Clone the repo of dinov2 (and download the checkpoints) instead of using the huggingface implementation (currently we do this in task1)
-- [ ] (optional but good) remove redundancy in the two notebooks, by doing common operations only once. Examples of common operations between the two notebooks are: cloning repositories, instantiating models, downloading data, defining paths.
+- Fix training
+- Add task3 in train.ipynb
+- (optional but good) remove redundancy in the two notebooks, by doing common operations only once. Examples of common operations between the two notebooks are: cloning repositories, instantiating models, downloading data, defining paths.
+
+## Reporting results
+
+Results will be reported per keypoint and per image, following the definition in DIFT [1]. Here is the definition:
+
+We observed inconsistencies in PCK measurements across prior literature. Some works use the total number of correctly-predicted points in the whole dataset (or each category split) divided by the total number of predicted points as the final PCK, while some works first calculate a PCK value for each image and then average it across the dataset (or each category split). We denote the first metric as PCK per point and the second as PCK per image.
+
+In the baselines, our "overall" PCK is "per-keypoint" (total correct / total keypoints), and also we have the "per-image" (PCK computed for each image pair, then report mean/std/min/max).
+
+## Explaining results
+
+SAM performs way worse than the dino models. This is because SAM features are optimized for segmentation boundaries, not semantic similarity. They encode "what's an object edge" rather than "what's semantically similar." Also, SAM 1 was designed to be prompted with visual inputs (points, bounding boxes, or masks), but in this baseline we're not passing any prompts. SAM features aren't well-suited for our task.
