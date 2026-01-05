@@ -8,11 +8,13 @@ Project for the AML course.
 https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro/Intro_to_Weights_%26_Biases.ipynb
 ```
 
-## TODO
+## TODO in order
 
-- Fix training
-- Add task3 in train.ipynb
-- (optional but good) remove redundancy in the two notebooks, by doing common operations only once. Examples of common operations between the two notebooks are: cloning repositories, instantiating models, downloading data, defining paths.
+- Reduce the resolution of images to eval/train faster
+- Reach at least 50% PCK at 0.1 with dinov2 and dinov3 -> complete task 1
+- Organize the repository better (don't put everything in one file). remove redundancy in the notebooks, by doing common operations only once. Examples of common operations between the two notebooks are: cloning repositories, instantiating models, downloading data, defining paths and functions.
+- Fix training -> complete task 2
+- Add task3 after we complete task1 and task2
 
 ## Reporting results
 
