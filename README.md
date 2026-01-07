@@ -10,11 +10,11 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 
 ## TODO in order
 
-- Reduce the resolution of images to eval/train faster
-- Reach at least 50% PCK at 0.1 with dinov2 and dinov3 
-- Add the other thresholds and complete task 1
+- Reduce the resolution of images to eval/train faster DONE
+- Reach at least 50% PCK at 0.1 with dinov2 and dinov3 DONE 
+- Add the other thresholds and complete task 1 
 - Organize the repository better (don't put everything in one file). remove redundancy in the notebooks, by doing common operations only once. Examples of common operations between the two notebooks are: cloning repositories, instantiating models, downloading data, defining paths and functions.
-- Fix training -> complete task 2
+- Fix training -> complete task 2 DONE 
 - Add visualization of the results: compare the ground truth keypoint of an image with the predicted keypoint.
 - Add task3 after we complete task1 and task2
 
