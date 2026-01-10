@@ -10,11 +10,9 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 
 ## TODO in order
 
-- Reduce the resolution of images to eval/train faster DONE
-- Reach at least 50% PCK at 0.1 with dinov2 and dinov3 DONE 
-- Add the other thresholds and complete task 1 
+- Run task1 to get the results (per image and per keypoint PCK)
 - Organize the repository better (don't put everything in one file). remove redundancy in the notebooks, by doing common operations only once. Examples of common operations between the two notebooks are: cloning repositories, instantiating models, downloading data, defining paths and functions.
-- Fix training -> complete task 2 DONE 
+- Review task 2's correctness
 - Add visualization of the results: compare the ground truth keypoint of an image with the predicted keypoint.
 - Add task3 after we complete task1 and task2
 
@@ -22,7 +20,7 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 
 Results will be reported per keypoint and per image, following the definition in DIFT [1]. Here is the definition:
 
-We observed inconsistencies in PCK measurements across prior literature. Some works use the total number of correctly-predicted points in the whole dataset (or each category split) divided by the total number of predicted points as the final PCK, while some works first calculate a PCK value for each image and then average it across the dataset (or each category split). We denote the first metric as PCK per point and the second as PCK per image.
+Some works use the total number of correctly-predicted points in the whole dataset (or each category split) divided by the total number of predicted points as the final PCK, while some works first calculate a PCK value for each image and then average it across the dataset (or each category split). We denote the first metric as PCK per point and the second as PCK per image.
 
 In the baselines, our "overall" PCK is "per-keypoint" (total correct / total keypoints), and also we have the "per-image" (PCK computed for each image pair, then report mean/std/min/max).
 
