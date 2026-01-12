@@ -10,10 +10,9 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 
 ## TODO in order
 
-- Fix task 3
 - Organize the repository better (don't put everything in one file). remove redundancy in the notebooks, by doing common operations only once. Examples of common operations between the two notebooks are: cloning repositories, instantiating models, downloading data, defining paths and functions.
 - Review task 2's correctness
-- Add visualization of the results: compare the ground truth keypoint of an image with the predicted keypoint.
+- Add visualization of the results (example: comparing the ground truth keypoint of an image with the predicted keypoint).
 - The task 4 is all in one huge cell and redundant (fix it in the future)
 
 ## Reporting results
