@@ -1,0 +1,25 @@
+Type,Name,@0.05,@0.1,@0.15,@0.2
+Overall,final,15.5,24.48,32.12,38.64
+Category,aeroplane,18.83,27.19,35.13,41.82
+Category,bicycle,10.48,16.81,22.97,28.45
+Category,bird,21.3,32.52,39.81,47.08
+Category,boat,8.71,16.98,24.72,32.37
+Category,bottle,15.2,25.04,32.93,40.25
+Category,bus,14.6,19.5,24.7,29.12
+Category,car,14.95,21.44,26.84,32.32
+Category,cat,26.83,38.27,47.98,54.05
+Category,chair,8.27,13.42,18.35,22.67
+Category,cow,17.95,25.66,33.2,40.13
+Category,dog,12.83,20.99,29.38,35.96
+Category,horse,9.84,16.5,23.17,29.19
+Category,motorbike,8.35,16.23,22.25,27.72
+Category,person,20.48,32.24,40.6,47.28
+Category,pottedplant,13.0,22.81,28.26,33.13
+Category,sheep,8.55,15.63,21.58,27.0
+Category,train,20.1,31.87,42.27,51.77
+Category,tvmonitor,14.13,25.76,35.6,42.55
+Per-image stat,Mean,13.02,20.97,27.92,34.08
+Per-image stat,Median,0.0,16.67,25.0,33.33
+Per-image stat,Std,16.9,21.62,24.56,26.54
+Per-image stat,Min,0.0,0.0,0.0,0.0
+Per-image stat,Max,100.0,100.0,100.0,100.0
