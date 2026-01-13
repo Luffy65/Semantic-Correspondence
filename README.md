@@ -8,12 +8,14 @@ Project for the AML course.
 https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro/Intro_to_Weights_%26_Biases.ipynb
 ```
 
-## TODO in order
+## TODO in ORDER
 
-- Organize the repository better (don't put everything in one file). remove redundancy in the notebooks, by doing common operations only once. Examples of common operations between the two notebooks are: cloning repositories, instantiating models, downloading data, defining paths and functions.
-- Review task 2's correctness
-- Add visualization of the results (example: comparing the ground truth keypoint of an image with the predicted keypoint).
-- The task 4 is all in one huge cell and redundant (fix it in the future)
+- The evaluation of sam requires 3h, fix that (lower image res)
+- Remove normalization on imagened statistics before feeding input to SAM (?)
+- Better visualization of the results (example: comparing the ground truth keypoint of an image with the predicted keypoint). We should plot at every finetune; at the end of each epoch we update the plot. The plot informs us on how the finetune is going / has gone.
+- Evaluate the finetuned models using window softargmax
+- Implement task 4: evaluate on a new dataset (spwillow), both the untrained and the trained models
+- (optional): add sam3 for task4
 
 ## Reporting results
 
