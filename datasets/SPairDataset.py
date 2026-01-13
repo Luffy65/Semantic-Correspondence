@@ -9,93 +9,13 @@ import json
 import os
 import torch.nn.functional as F
 
-"""SPair-71k Dataset class, old version commented out below."""
-# class Normalize(object):
-#     def __init__(self, image_keys):
-#         self.image_keys = image_keys
-#         self.normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-
-#     def __call__(self, image):
-#         for key in self.image_keys:
-#             image[key] /= 255.0
-#             image[key] = self.normalize(image[key])
-#         return image
-
-
-# def read_img(path):
-#     img = np.array(Image.open(path).convert('RGB'))
-
-#     return torch.tensor(img.transpose(2, 0, 1).astype(np.float32))
-
-
-# class SPairDataset(Dataset):
-#     def __init__(self, pair_ann_path, layout_path, image_path, dataset_size, pck_alpha, datatype):
-
-#         self.datatype = datatype
-#         self.pck_alpha = pck_alpha
-#         self.ann_files = open(os.path.join(layout_path, dataset_size, datatype + '.txt'), "r").read().split('\n')
-#         self.ann_files = self.ann_files[:len(self.ann_files) - 1]
-#         self.pair_ann_path = pair_ann_path
-#         self.image_path = image_path
-#         self.categories = list(map(lambda x: os.path.basename(x), glob.glob('%s/*' % image_path)))
-#         self.categories.sort()
-#         self.transform = Normalize(['src_img', 'trg_img'])
-
-#     def __len__(self):
-#         return len(self.ann_files)
-
-#     def __getitem__(self, idx):
-#         # get pre-processed images
-#         ann_file = self.ann_files[idx] + '.json'
-#         with open(os.path.join(self.pair_ann_path, self.datatype, ann_file)) as f:
-#             annotation = json.load(f)
-
-#         category = annotation['category']
-#         src_img = read_img(os.path.join(self.image_path, category, annotation['src_imname']))
-#         trg_img = read_img(os.path.join(self.image_path, category, annotation['trg_imname']))
-
-#         trg_bbox = annotation['trg_bndbox']
-#         pck_threshold = max(trg_bbox[2] - trg_bbox[0],  trg_bbox[3] - trg_bbox[1]) * self.pck_alpha
-
-#         sample = {'pair_id': annotation['pair_id'],
-#                   'filename': annotation['filename'],
-#                   'src_imname': annotation['src_imname'],
-#                   'trg_imname': annotation['trg_imname'],
-#                   'src_imsize': src_img.size(),
-#                   'trg_imsize': trg_img.size(),
-
-#                   'src_bbox': annotation['src_bndbox'],
-#                   'trg_bbox': annotation['trg_bndbox'],
-#                   'category': annotation['category'],
-
-#                   'src_pose': annotation['src_pose'],
-#                   'trg_pose': annotation['trg_pose'],
-
-#                   'src_img': src_img,
-#                   'trg_img': trg_img,
-#                   'src_kps': torch.tensor(annotation['src_kps']).float(),
-#                   'trg_kps': torch.tensor(annotation['trg_kps']).float(),
-
-#                   'mirror': annotation['mirror'],
-#                   'vp_var': annotation['viewpoint_variation'],
-#                   'sc_var': annotation['scale_variation'],
-#                   'truncn': annotation['truncation'],
-#                   'occlsn': annotation['occlusion'],
-
-#                   'pck_threshold': pck_threshold}
-
-#         if self.transform:
-#             sample = self.transform(sample)
-
-#         return sample
-
 """SPair-71k Dataset class."""
 def read_img(path):
     img = np.array(Image.open(path).convert('RGB'))
     return torch.tensor(img.transpose(2, 0, 1).astype(np.float32))
 
 class SPairDataset(Dataset):
-    def __init__(self, pair_ann_path, layout_path, image_path, dataset_size, pck_alpha, datatype, target_size=224):
+    def __init__(self, pair_ann_path, layout_path, image_path, dataset_size, pck_alpha, datatype, target_size=1024):
         self.datatype = datatype
         self.pck_alpha = pck_alpha
         self.target_size = target_size  # NEW: allow configurable size
