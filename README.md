@@ -13,6 +13,7 @@ https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro
 - The evaluation of sam requires 3h, fix that (lower image res)
 - Remove normalization on imagenet statistics before feeding input to SAM (?)
 - Better visualization of the results (example: comparing the ground truth keypoint of an image with the predicted keypoint). We should plot at every finetune; at the end of each epoch we update the plot. The plot informs us on how the finetune is going / has gone.
+- Experiment training with different hyperparameters to see which performs best (like the task specified: "By testing different numbers of finetuned layers, we can observe how performance evolves as the model is given more flexibility to adapt to the task.")
 - Evaluate the finetuned models using window softargmax
 - Implement task 4: evaluate on a new dataset (spwillow), both the untrained and the trained models
 - (optional): add sam3 for task4

@@ -72,8 +72,7 @@ This analysis will show how each backbone behaves across categories and difficul
 
 In the second stage, we keep the same pipeline but unfreeze the last layers of the
 backbone and fine-tune them using keypoint supervision from SPair-71k.
-By testing different numbers of finetuned layers, we can observe how performance evolves
-as the model is given more flexibility to adapt to the task. This highlights how a small amount
+By testing different numbers of finetuned layers, we can observe how performance evolves as the model is given more flexibility to adapt to the task. This highlights how a small amount
 of fine-tuning can significantly boost correspondence quality.
 
 ## 3) Prediction
