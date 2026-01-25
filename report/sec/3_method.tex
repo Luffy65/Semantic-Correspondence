@@ -38,9 +38,9 @@ While the training-free setting already provides strong correspondence performan
 to the semantic correspondence task. Fine-tuning is performed using keypoint supervision from SPair-71k by unfreezing only a limited subset of layers
 for each backbone, while keeping the remaining parameters frozen.
 
-For DINO-based models, we experiment with unfreezing the last few transformer blocks together with the final normalization layer. In particular, for
-DINOv2 we report results obtained by unfreezing the last three transformer layers and the normalization layer. For SAM, we fine-tune the neck component
-while keeping the image encoder frozen. This design allows the model to adapt to correspondence-specific cues while preserving the general semantic
+We experiment with unfreezing the last few transformer blocks together with the final normalization layer. In particular, for
+DINOv2 we report results obtained by unfreezing the last transformer layer and the normalization layer. For SAM, we fine-tune the last 2 layers and the neck component
+while keeping the remaining layers of the encoder frozen. This design allows the model to adapt to correspondence-specific cues while preserving most of the general semantic
 structure learned during pretraining.
 
 Training is supervised using a contrastive loss defined on feature representations at corresponding and non-corresponding locations. Given a source
@@ -80,7 +80,7 @@ selected through validation.
 
 \subsection{Implementation Details}
 
-Images are resized according to the backbone requirements: $518 \times 518$ for DINOv2, $512 \times 512$ for DINOv3, and $1024 \times 1024$ for SAM.
+Images are resized according to the backbone requirements: $518 \times 518$ for DINOv2, $512 \times 512$ for DINOv3 and for SAM.
 For DINO-based models, we apply ImageNet normalization with mean $(0.485, 0.456, 0.406)$ and standard deviation $(0.229, 0.224, 0.225)$.
 For SAM, we use the model-specific normalization with mean $(123.675, 116.28, 103.53)$ and standard deviation $(58.395, 57.12, 57.375)$.
 % All models are implemented in PyTorch and optimized using AdamW during fine-tuning.

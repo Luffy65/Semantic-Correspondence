@@ -6,14 +6,13 @@ Recent advances in visual foundation models have shown that large-scale pretrain
 correspondence supervision, suggesting strong potential for dense matching tasks.
 
 In this work, we systematically study semantic correspondence using features extracted from pretrained visual foundation models.
-We evaluate a training-free correspondence pipeline on the SPair-71k benchmark~\cite{min2019spair}, comparing popular backbones including
-DINOv2~\cite{oquab2023dinov2}, DINOv3~\cite{simeoni2025dinov3}, and Segment Anything~\cite{kirillov2023segment}.
-We further analyze the effect of light fine-tuning of the final backbone layers using a contrastive objective and investigate an improved prediction
-strategy based on windowed soft-argmax~\cite{zhang2024telling}.
+We evaluate a training-free correspondence pipeline on the SPair-71k benchmark~\cite{min2019spair}, comparing three popular backbones: DINOv2~\cite{oquab2023dinov2}, DINOv3~\cite{simeoni2025dinov3}, and Segment Anything (SAM)~\cite{kirillov2023segment}.
+We further analyze the effect of light fine-tuning of the final backbone layers using a contrastive objective, investigate an improved prediction
+strategy based on windowed soft-argmax~\cite{zhang2024telling}, and assess the performance on another dataset, PF-Willow~\cite{ham2016}.
 
-Our experiments show that fine-tuned DINO-based models significantly outperform SAM for semantic correspondence. In particular,
-DINOv3 achieves a PCK@0.1 of \textbf{75.77\%}, slightly improving over DINOv2 (\textbf{74.89\%}), while DINOv2 attains the highest accuracy at
-stricter thresholds, reaching \textbf{60.02\%} at PCK@0.05. Compared to training-free baselines, fine-tuning yields consistent improvements
+Our experiments show that DINO-based models significantly outperform SAM for semantic correspondence. In particular,
+fine-tuned DINOv3 achieves a PCK@0.1 of \textbf{75.77\%}, slightly improving over fine-tuned DINOv2 (\textbf{74.89\%}), while fine-tuned DINOv2 attains the highest accuracy at
+stricter thresholds, reaching \textbf{60.02\%} at PCK@0.05. Compared to training-free baselines, a small amount of fine-tuning yields significant improvements
 across all thresholds. Additionally, windowed soft-argmax further enhances localization accuracy and robustness.
 
 These results demonstrate that modern foundation models, when lightly adapted, provide a strong and scalable basis for semantic correspondence.

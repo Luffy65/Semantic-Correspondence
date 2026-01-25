@@ -1,7 +1,7 @@
 \section{Experiments}
 \label{sec:experiments}
 
-We evaluate our semantic correspondence pipeline on standard benchmarks following the AML Task~3 protocol.
+We evaluate our semantic correspondence pipeline on standard benchmarks.
 Our experiments aim to assess (i) the quality of different foundation models for correspondence, (ii) the impact of fine-tuning, and (iii) generalization across datasets.
 
 %-------------------------------------------------------------------------
@@ -31,7 +31,7 @@ We report PCK at multiple thresholds ($\alpha \in \{0.05, 0.1, 0.15, 0.2\}$).
 
 \subsection{Implementation Details}
 
-Input images are resized according to the backbone requirements: $518\times518$ for DINOv2, $512\times512$ for DINOv3, and $1024\times1024$ for SAM.
+Input images are resized according to the backbone requirements: $518\times518$ for DINOv2, $512\times512$ for DINOv3 and for SAM.
 DINO models use ImageNet normalization, while SAM employs its official normalization scheme.
 
 Matching is performed using cosine similarity between dense features, followed by a global argmax.
