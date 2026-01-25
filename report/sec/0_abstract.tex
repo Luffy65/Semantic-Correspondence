@@ -1,7 +1,22 @@
 \begin{abstract}
-The ABSTRACT is to be in fully justified italicized text, at the top of the left-hand column, below the author and affiliation information.
-Use the word ``Abstract'' as the title, in 12-point Times, boldface type, centered relative to the column, initially capitalized.
-The abstract is to be in 10-point, single-spaced type.
-Leave two blank lines after the Abstract, then begin the main text.
-Look at previous \confName abstracts to get a feel for style and length.
+
+Semantic correspondence aims to establish pixel-level matches between semantically equivalent object parts across different images.
+Despite extensive prior work, the task remains challenging due to large variations in viewpoint, scale, object deformation, and visual domain.
+Recent advances in visual foundation models have shown that large-scale pretrained encoders learn rich semantic representations without explicit
+correspondence supervision, suggesting strong potential for dense matching tasks.
+
+In this work, we systematically study semantic correspondence using features extracted from pretrained visual foundation models.
+We evaluate a training-free correspondence pipeline on the SPair-71k benchmark~\cite{min2019spair}, comparing popular backbones including
+DINOv2~\cite{oquab2023dinov2}, DINOv3~\cite{simeoni2025dinov3}, and Segment Anything~\cite{kirillov2023segment}.
+We further analyze the effect of light fine-tuning of the final backbone layers using a contrastive objective and investigate an improved prediction
+strategy based on windowed soft-argmax~\cite{zhang2024telling}.
+
+Our experiments show that fine-tuned DINO-based models significantly outperform SAM for semantic correspondence. In particular,
+DINOv3 achieves a PCK@0.1 of \textbf{75.77\%}, slightly improving over DINOv2 (\textbf{74.89\%}), while DINOv2 attains the highest accuracy at
+stricter thresholds, reaching \textbf{60.02\%} at PCK@0.05. Compared to training-free baselines, fine-tuning yields consistent improvements
+across all thresholds. Additionally, windowed soft-argmax further enhances localization accuracy and robustness.
+
+These results demonstrate that modern foundation models, when lightly adapted, provide a strong and scalable basis for semantic correspondence.
+Project page: \url{https://github.com/Luffy65/Semantic-Correspondence}.
+
 \end{abstract}

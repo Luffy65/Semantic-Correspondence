@@ -1,0 +1,87 @@
+\section{Method}
+\label{sec:method}
+
+Our semantic correspondence pipeline relies on dense features extracted from pretrained visual foundation models. In this section, we describe
+the problem formulation, the training-free baseline based on cosine similarity, the light fine-tuning strategy adopted for different backbones,
+and the prediction refinement using windowed soft-argmax.
+
+%-------------------------------------------------------------------------
+
+\subsection{Problem Setup}
+
+Given a source image $I_s$ and a target image $I_t$, the goal of semantic correspondence is to predict, for each annotated keypoint $p_s$ in $I_s$,
+the location $\hat{p}_t$ in $I_t$ corresponding to the same semantic object part. We evaluate our method on datasets providing sparse keypoint
+annotations, namely SPair-71k~\cite{min2019spair} and PF-Willow, using the Percentage of Correct Keypoints (PCK) metric at multiple thresholds.
+
+%-------------------------------------------------------------------------
+
+\subsection{Training-Free Correspondence Baseline}
+
+We first establish a training-free baseline following prior work on emergent correspondence from pretrained models~\cite{tang2023emergent, zhang2023tale}.
+Given an image $I$, we extract a dense feature map $F(I) \in \mathbb{R}^{H' \times W' \times D}$ using a frozen backbone. We evaluate three pretrained
+models: DINOv2~\cite{oquab2023dinov2}, DINOv3~\cite{simeoni2025dinov3}, and Segment Anything (SAM)~\cite{kirillov2023segment}. Features are extracted online without caching.
+
+For each source keypoint $p_s$, we extract the corresponding feature vector $f_s = F(I_s)[p_s]$ and compute cosine similarity with all spatial locations
+in the target feature map $F(I_t)$. The predicted correspondence is obtained by selecting the target location that maximizes the similarity score:
+
+\[
+\hat{p}_t = \arg\max_{r} \ \cos\big(f_s, F(I_t)[r]\big),
+\]
+
+where $r$ indexes spatial positions in the target feature map. This simple global argmax matching serves as a strong baseline for semantic correspondence.
+
+%-------------------------------------------------------------------------
+
+\subsection{Light Fine-Tuning of Pretrained Backbones}
+
+While the training-free setting already provides strong correspondence performance, we further investigate light fine-tuning to adapt pretrained representations
+to the semantic correspondence task. Fine-tuning is performed using keypoint supervision from SPair-71k by unfreezing only a limited subset of layers
+for each backbone, while keeping the remaining parameters frozen.
+
+For DINO-based models, we experiment with unfreezing the last few transformer blocks together with the final normalization layer. In particular, for
+DINOv2 we report results obtained by unfreezing the last three transformer layers and the normalization layer. For SAM, we fine-tune the neck component
+while keeping the image encoder frozen. This design allows the model to adapt to correspondence-specific cues while preserving the general semantic
+structure learned during pretraining.
+
+Training is supervised using a contrastive loss defined on feature representations at corresponding and non-corresponding locations. Given a source
+keypoint $p_s$ with feature vector $f_s$ and its ground-truth correspondence $p_t$ in the target image with feature $f_t$, the objective encourages
+high similarity between matching features while discouraging similarity with non-matching target locations. Specifically, for a batch of $N$ keypoints,
+we optimize a contrastive objective of the form:
+
+\[
+\mathcal{L} = -\frac{1}{N} \sum_{i=1}^{N}
+\log \frac{\exp(\cos(f_s^i, f_t^i) / \tau)}
+{\sum_{j=1}^{N} \exp(\cos(f_s^i, f_t^j) / \tau)},
+\]
+
+where $\tau$ is a temperature hyperparameter. This formulation encourages discriminative feature alignment across image pairs while remaining robust
+to intra-class variability and geometric differences.
+
+%-------------------------------------------------------------------------
+
+\subsection{Prediction Refinement with Windowed Soft-Argmax}
+
+The global argmax operation produces discrete predictions and can be sensitive to local noise in the similarity map. To improve robustness and enable
+sub-pixel localization, we adopt a windowed soft-argmax refinement strategy inspired by~\cite{zhang2024telling}.
+
+For each source keypoint, we first obtain a coarse correspondence $\hat{p}_t$ using global argmax. We then define a local square window centered
+at $\hat{p}_t$ with radius $r$. Within this window, we apply a softmax over similarity scores and compute a weighted average of spatial coordinates:
+
+\[
+\tilde{p}_t = \sum_{r \in \mathcal{W}(\hat{p}_t)} r \cdot 
+\frac{\exp(\alpha \cdot S(r))}{\sum_{k \in \mathcal{W}(\hat{p}_t)} \exp(\alpha \cdot S(k))},
+\]
+
+where $S(r)$ denotes the cosine similarity at position $r$, $\mathcal{W}(\hat{p}_t)$ is the local window, and $\alpha$ controls the sharpness of
+the distribution. We empirically observe that large window radii (\eg $r=5$ or $r=10$) degrade performance, and therefore use smaller values
+selected through validation.
+
+%-------------------------------------------------------------------------
+
+\subsection{Implementation Details}
+
+Images are resized according to the backbone requirements: $518 \times 518$ for DINOv2, $512 \times 512$ for DINOv3, and $1024 \times 1024$ for SAM.
+For DINO-based models, we apply ImageNet normalization with mean $(0.485, 0.456, 0.406)$ and standard deviation $(0.229, 0.224, 0.225)$.
+For SAM, we use the model-specific normalization with mean $(123.675, 116.28, 103.53)$ and standard deviation $(58.395, 57.12, 57.375)$.
+% All models are implemented in PyTorch and optimized using AdamW during fine-tuning.
+

@@ -1,7 +1,61 @@
 \section{Final copy}
 
-You must include your signed IEEE copyright release form when you submit your finished paper.
-We MUST have this form before your paper can be published in the proceedings.
+%-------------------------------------------------------------------------
 
-Please direct any questions to the production editor in charge of these proceedings at the IEEE Computer Society Press:
-\url{https://www.computer.org/about/contact}.
+\subsection{Mathematics}
+
+Please, number all of your sections and displayed equations as in these examples:
+\begin{equation}
+  E = m\cdot c^2
+  \label{eq:important}
+\end{equation}
+and
+\begin{equation}
+  v = a\cdot t.
+  \label{eq:also-important}
+\end{equation}
+
+
+\begin{figure}[t]
+  \centering
+  \fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+   %\includegraphics[width=0.8\linewidth]{egfigure.eps}
+
+   \caption{Example of caption.
+   It is set in Roman so that mathematics (always set in Roman: $B \sin A = A \sin B$) may be included without an ugly clash.}
+   \label{fig:onecol}
+\end{figure}
+
+\subsection{Miscellaneous}
+\begin{figure*}
+  \centering
+  \begin{subfigure}{0.68\linewidth}
+    \fbox{\rule{0pt}{2in} \rule{.9\linewidth}{0pt}}
+    \caption{An example of a subfigure.}
+    \label{fig:short-a}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.28\linewidth}
+    \fbox{\rule{0pt}{2in} \rule{.9\linewidth}{0pt}}
+    \caption{Another example of a subfigure.}
+    \label{fig:short-b}
+  \end{subfigure}
+  \caption{Example of a short caption, which should be centered.}
+  \label{fig:short}
+\end{figure*}
+
+
+\begin{table}
+  \caption{Results.   Ours is better.}
+  \label{tab:example}
+  \centering
+  \begin{tabular}{@{}lc@{}}
+    \toprule
+    Method & Frobnability \\
+    \midrule
+    Theirs & Frumpy \\
+    Yours & Frobbly \\
+    Ours & Makes one's heart Frob\\
+    \bottomrule
+  \end{tabular}
+\end{table}

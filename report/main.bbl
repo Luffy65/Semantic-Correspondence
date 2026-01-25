@@ -1,39 +1,64 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Alpher(2002)]{Alpher02}
-FirstName Alpher.
-\newblock Frobnication.
-\newblock \emph{IEEE TPAMI}, 12\penalty0 (1):\penalty0 234--778, 2002.
+\bibitem[Caron et~al.(2021)Caron, Touvron, Misra, Jegou, Mairal, Bojanowski,
+  and Joulin]{caron2021emerging}
+Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jegou, Julien Mairal, Piotr
+  Bojanowski, and Armand Joulin.
+\newblock Emerging properties in self-supervised vision transformers.
+\newblock In \emph{ICCV}, 2021.
 
-\bibitem[Alpher and Fotheringham-Smythe(2003)]{Alpher03}
-FirstName Alpher and FirstName Fotheringham-Smythe.
-\newblock Frobnication revisited.
-\newblock \emph{Journal of Foo}, 13\penalty0 (1):\penalty0 234--778, 2003.
+\bibitem[Kirillov et~al.(2023)Kirillov, Mintun, Ravi, Mao, Rolland, Gustafson,
+  Xiao, Whitehead, Berg, Lo, Doll{\'a}r, and Girshick]{kirillov2023segment}
+Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chlo{\'e} Rolland,
+  Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander~C. Berg, Wan-Yen Lo,
+  Piotr Doll{\'a}r, and Ross Girshick.
+\newblock Segment anything.
+\newblock In \emph{ICCV}, 2023.
 
-\bibitem[Alpher and Gamow(2005)]{Alpher05}
-FirstName Alpher and FirstName Gamow.
-\newblock Can a computer frobnicate?
-\newblock In \emph{CVPR}, pages 234--778, 2005.
+\bibitem[Min et~al.(2019)Min, Lee, Ponce, and Cho]{min2019spair}
+Juhong Min, Jongmin Lee, Jean Ponce, and Minsu Cho.
+\newblock Spair-71k: A large-scale benchmark for semantic correspondence.
+\newblock In \emph{ICCV}, 2019.
 
-\bibitem[Alpher et~al.(2004)Alpher, Fotheringham-Smythe, and Gamow]{Alpher04}
-FirstName Alpher, FirstName Fotheringham-Smythe, and FirstName Gamow.
-\newblock Can a machine frobnicate?
-\newblock \emph{Journal of Foo}, 14\penalty0 (1):\penalty0 234--778, 2004.
+\bibitem[Oquab et~al.(2023)Oquab, Darcet, Moutakanni, Vo, Szafraniec, Khalidov,
+  Fernandez, Courville, Bojanowski, and Joulin]{oquab2023dinov2}
+Maxime Oquab, Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, Huy Vo, Marc
+  Szafraniec, Vasil Khalidov, Pierre Fernandez, Aaron Courville, Piotr
+  Bojanowski, and Armand Joulin.
+\newblock Dinov2: Learning robust visual features without supervision.
+\newblock In \emph{CVPR}, 2023.
 
-\bibitem[LastName(2014{\natexlab{a}})]{Authors14}
-FirstName LastName.
-\newblock The frobnicatable foo filter, 2014{\natexlab{a}}.
-\newblock Face and Gesture submission ID 324. Supplied as supplemental material
-  {\tt fg324.pdf}.
+\bibitem[Simeoni et~al.(2025)]{simeoni2025dinov3}
+Oriane Simeoni et~al.
+\newblock Dinov3.
+\newblock 2025.
 
-\bibitem[LastName(2014{\natexlab{b}})]{Authors14b}
-FirstName LastName.
-\newblock Frobnication tutorial, 2014{\natexlab{b}}.
-\newblock Supplied as supplemental material {\tt tr.pdf}.
+\bibitem[Tang et~al.(2023)Tang, Jia, Wang, Phoo, and
+  Hariharan]{tang2023emergent}
+Luming Tang, Menglin Jia, Qianqian Wang, Cheng~Perng Phoo, and Bharath
+  Hariharan.
+\newblock Emergent correspondence from image diffusion.
+\newblock In \emph{NeurIPS}, 2023.
+
+\bibitem[Zhang et~al.(2023)Zhang, Herrmann, Hur, Polanía, Jampani, Sun, and
+  Yang]{zhang2023tale}
+Junyi Zhang, Charles Herrmann, Junhwa Hur, Luisa Polanía, Varun Jampani,
+  Deqing Sun, and Ming-Hsuan Yang.
+\newblock A tale of two features: Stable diffusion complements dino for
+  zero-shot semantic correspondence.
+\newblock In \emph{NeurIPS}, 2023.
+
+\bibitem[Zhang et~al.(2024)Zhang, Herrmann, Hur, Chen, Jampani, Sun, and
+  Yang]{zhang2024telling}
+Junyi Zhang, Charles Herrmann, Junhwa Hur, Eric Chen, Varun Jampani, Deqing
+  Sun, and Ming-Hsuan Yang.
+\newblock Telling left from right: Identifying geometry-aware semantic
+  correspondence.
+\newblock In \emph{CVPR}, 2024.
 
 \end{thebibliography}

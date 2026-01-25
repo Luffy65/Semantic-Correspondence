@@ -1,0 +1,35 @@
+\section{Related Work}
+\label{sec:related_work}
+
+\paragraph{Semantic Correspondence.}
+Early approaches to semantic correspondence focused on handcrafted features and geometric alignment techniques, which struggled to generalize
+across large appearance and shape variations. More recent methods leverage deep learning to learn correspondence-aware representations,
+significantly improving robustness to non-rigid deformations and intra-class variability. Benchmark datasets such as SPair-71k~\cite{min2019spair}
+have played a crucial role in advancing this field by providing large-scale keypoint annotations across diverse object categories and viewpoints.
+
+\paragraph{Emergent Correspondence from Pretrained Models.}
+Recent studies have shown that semantic correspondence can emerge naturally from large pretrained visual models, even without explicit correspondence
+supervision. Tang \etal~\cite{tang2023emergent} demonstrated that dense features extracted from image diffusion models encode strong correspondence
+signals. Building on this idea, Zhang \etal~\cite{zhang2023tale} showed that features from Stable Diffusion complement self-supervised vision
+transformers, enabling zero-shot semantic correspondence. These works highlight the surprising effectiveness of pretrained representations for dense
+matching tasks and motivate the use of training-free baselines.
+
+\paragraph{Self-Supervised Vision Transformers.}
+Self-supervised learning has emerged as a powerful paradigm for learning general-purpose visual representations. DINO~\cite{caron2021emerging} showed
+that Vision Transformers trained with self-distillation objectives capture high-level semantic structure and object part consistency. DINOv2~\cite{oquab2023dinov2}
+further improved robustness and scalability by training on large curated datasets, leading to strong performance across a wide range of downstream
+tasks. More recently, DINOv3~\cite{simeoni2025dinov3} has introduced architectural and training improvements that further enhance representation
+quality. These models provide a strong foundation for semantic correspondence, as their dense features often align semantically meaningful object parts across images.
+
+\paragraph{Foundation Models for Dense Vision Tasks.}
+Beyond self-supervised encoders, foundation models trained for general vision tasks have shown strong transferability. Segment Anything~\cite{kirillov2023segment}
+introduced a large-scale segmentation model capable of producing high-quality masks across diverse domains. Although not explicitly designed for
+correspondence, its dense feature representations can be repurposed for matching tasks. Comparing such models with self-supervised transformers
+provides insight into how different training objectives affect correspondence performance.
+
+\paragraph{Prediction Strategies for Correspondence.}
+Most correspondence pipelines rely on selecting the target location with the highest similarity score via a discrete argmax operation. However, this
+approach is sensitive to noise and limited to pixel-level precision. Zhang \etal~\cite{zhang2024telling} proposed a geometry-aware framework that
+replaces global argmax with a windowed soft-argmax strategy, enabling sub-pixel refinement and improved robustness. Inspired by this approach, we adopt
+a similar prediction strategy to enhance correspondence accuracy in our experiments.
+

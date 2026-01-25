@@ -1,0 +1,26 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+In this work, we investigated semantic correspondence using features extracted from modern visual foundation models. Through extensive experiments
+on the SPair-71k benchmark, we analyzed the inherent correspondence capabilities of several pretrained backbones, as well as the impact of light
+fine-tuning and improved prediction strategies. Our results demonstrate that foundation models already encode strong semantic alignment cues,
+enabling accurate correspondence estimation even in a training-free setting.
+
+Among the evaluated backbones, DINO-based models substantially outperform Segment Anything for semantic correspondence. While DINOv3 achieves the
+highest accuracy at moderate thresholds, reaching 75.77\% at PCK@0.1, DINOv2 attains superior performance at stricter thresholds, achieving 60.02\% at
+PCK@0.05. These results highlight a clear trade-off between localization precision and robustness across different pretrained representations.
+We further showed that selectively fine-tuning the final layers of the backbone using a contrastive objective consistently improves performance
+across all thresholds, confirming that limited adaptation of pretrained features can significantly enhance correspondence quality. In addition,
+replacing the standard argmax operation with a windowed soft-argmax prediction leads to more robust and precise keypoint localization.
+
+To assess generalization across domains, we additionally evaluated our approach on the PF-Willow dataset. Despite differences in image characteristics
+and annotation protocols compared to SPair-71k, the proposed method maintains competitive correspondence performance, indicating that the learned
+representations capture transferable semantic structures beyond the training distribution.
+%[…]
+These results indicate that the learned representations capture transferable semantic structures that generalize beyond the training distribution of SPair-71k.
+
+Overall, our findings highlight the effectiveness of visual foundation models as a robust and scalable solution for semantic correspondence across
+datasets and domains. This study provides practical insights into model selection, fine-tuning strategies, and prediction design, and suggests that
+further gains may be achieved by exploring domain adaptation techniques or extending the approach to related tasks such as geometric correspondence
+and point tracking in video.
+

@@ -5,44 +5,46 @@ Reallocating 'name_of_file' (item size: 1) to 17 items.
 The style file: ieeenat_fullname.bst
 Reallocating 'name_of_file' (item size: 1) to 5 items.
 Database file #1: main.bib
-You've used 6 entries,
+Warning--empty journal in simeoni2025dinov3
+You've used 8 entries,
             2708 wiz_defined-function locations,
-            696 strings with 5998 characters,
-and the built_in function-call counts, 2522 in all, are:
-= -- 234
-> -- 102
-< -- 6
-+ -- 37
-- -- 30
-* -- 181
-:= -- 376
-add.period$ -- 18
-call.type$ -- 6
-change.case$ -- 28
-chr.to.int$ -- 5
-cite$ -- 12
-duplicate$ -- 122
-empty$ -- 231
-format.name$ -- 40
-if$ -- 534
-int.to.chr$ -- 2
+            690 strings with 6937 characters,
+and the built_in function-call counts, 4968 in all, are:
+= -- 361
+> -- 509
+< -- 1
++ -- 170
+- -- 162
+* -- 453
+:= -- 815
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 77
+chr.to.int$ -- 8
+cite$ -- 17
+duplicate$ -- 180
+empty$ -- 296
+format.name$ -- 171
+if$ -- 989
+int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 4
-newline$ -- 38
-num.names$ -- 24
-pop$ -- 63
+missing$ -- 8
+newline$ -- 48
+num.names$ -- 32
+pop$ -- 178
 preamble$ -- 1
-purify$ -- 22
+purify$ -- 69
 quote$ -- 0
-skip$ -- 91
+skip$ -- 144
 stack$ -- 0
-substring$ -- 119
-swap$ -- 18
-text.length$ -- 1
+substring$ -- 16
+swap$ -- 14
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 66
-warning$ -- 0
-while$ -- 27
+type$ -- 88
+warning$ -- 1
+while$ -- 24
 width$ -- 0
-write$ -- 83
+write$ -- 102
+(There was 1 warning)

@@ -3,9 +3,9 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
 %%%%%%%%% PAPER TYPE  - PLEASE UPDATE FOR FINAL VERSION
- \usepackage{cvpr}              % To produce the CAMERA-READY version
+% \usepackage{cvpr}              % To produce the CAMERA-READY version
 % \usepackage[review]{cvpr}      % To produce the REVIEW version
-% \usepackage[pagenumbers]{cvpr} % To force page numbers, e.g. for an arXiv version
+\usepackage[pagenumbers]{cvpr} % To force page numbers, e.g. for an arXiv version
 
 % Import additional packages in the preamble file, before hyperref
 \input{preamble}
@@ -19,6 +19,7 @@
 % (Or just hit 'q' on the first LaTeX run, let it finish, and you should be clear).
 \definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
 \usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+\usepackage{booktabs}
 
 %%%%%%%%% PAPER ID  - PLEASE UPDATE
 \def\paperID{*****} % *** Enter the Paper ID here
@@ -26,7 +27,7 @@
 \def\confYear{2026}
 
 %%%%%%%%% TITLE - PLEASE UPDATE
-\title{\LaTeX\ Author Guidelines for \confName~Proceedings}
+\title{Semantic Correspondence}
 
 %%%%%%%%% AUTHORS - PLEASE UPDATE
 \author{Luca Amoroso\\
@@ -44,7 +45,7 @@ Politecnico di Torino\\
 \and
 Antonio Pio Caruso\\
 Politecnico di Torino\\
-{\tt\small }
+{\tt\small s345249@studenti.polito.it}
 \and
 Negar\\
 Politecnico di Torino\\
@@ -55,8 +56,11 @@ Politecnico di Torino\\
 \maketitle
 \input{sec/0_abstract}    
 \input{sec/1_intro}
-\input{sec/2_formatting}
-\input{sec/3_finalcopy}
+\input{sec/2_related_work}
+\input{sec/3_method}
+\input{sec/4_experiments}
+\input{sec/5_conclusion}
+% \input{sec/3_finalcopy}
 {
     \small
     \bibliographystyle{ieeenat_fullname}
