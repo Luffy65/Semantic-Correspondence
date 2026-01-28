@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1769603311.55023 "main.aux" "main.bbl" "main" 1769603319.87609 0
+["bibtex main"] 1769618116.89427 "main.aux" "main.bbl" "main" 1769618931.64228 0
   "./ieeenat_fullname.bst" 1764088134 28348 a296cb1ebee73f7bfa143751dc4e1dfd ""
-  "./main.bib" 1769536084 4263 7e4a9684797fb01361f26691427d95f4 ""
-  "main.aux" 1769603315 11794 a91ab1244d0cd1c50798b524b475ea0d "pdflatex"
+  "./main.bib" 1769606701 4486 c5d4796ea86463681297060c6488d2fb ""
+  "main.aux" 1769618927 16934 6fe9e0c0a21e8fa4ea0917cb6b488cd8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1769603312.48077 "c:/Users/antea/Desktop/LEZIONI/Advanced Machine Learning/Project/Semantic-Correspondence/report/main.tex" "main.pdf" "main" 1769603319.8806 0
+["pdflatex"] 1769618922.23836 "c:/Users/antea/Desktop/LEZIONI/Advanced Machine Learning/Project/Semantic-Correspondence/report/main.tex" "main.pdf" "main" 1769618931.64486 0
   "C:/Users/antea/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1764093803 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/antea/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1764093594 13333512 9b8573e4aa57a6813467f499dcc9a6f5 ""
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -51,8 +51,10 @@
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1247596667 37912 07513ec114ac737ab54cea0152f4424b ""
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
+  "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb" 1247596667 36094 798f80770b3b148ceedd006d487db67c ""
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
+  "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1247596666 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1247596666 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
@@ -136,17 +138,18 @@
   "C:/Users/antea/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "c:/Users/antea/Desktop/LEZIONI/Advanced Machine Learning/Project/Semantic-Correspondence/report/main.tex" 1769533164 2416 bf3056840755bdeb3c7077cbfb039b64 ""
   "cvpr.sty" 1764088134 18477 3445318c9c9e09b8ef62b6aaa240cbba ""
-  "main.aux" 1769603315 11794 a91ab1244d0cd1c50798b524b475ea0d "pdflatex"
-  "main.bbl" 1769603312 2767 b72114d5b00bf25520777592494587e8 "bibtex main"
-  "main.brf" 1769603315 1681 df7d86802b9d564fb9904554baddde2f "pdflatex"
-  "main.out" 1769603315 3334 1ecc685ba21ddf751d70e3b59ec26a89 "pdflatex"
+  "figures/SAM_finetuning.png" 1769607666 226152 6f3f9b9a45cd74f65946795394df9d4d ""
+  "main.aux" 1769618927 16934 6fe9e0c0a21e8fa4ea0917cb6b488cd8 "pdflatex"
+  "main.bbl" 1769618117 3009 5c4784cc4652231dd3f1c2b79e8e37ff "bibtex main"
+  "main.brf" 1769618927 1729 f0eeebb2c1648069d6612ffb30952fdd "pdflatex"
+  "main.out" 1769618927 3584 f5c3ac4e3dc23534962a9766a38dffbf "pdflatex"
   "main.tex" 1769533164 2416 bf3056840755bdeb3c7077cbfb039b64 ""
   "preamble.tex" 1764088134 1430 fce35e804845ec73d7cbbe9e69d8975c ""
-  "sec/0_abstract.tex" 1769533164 1990 e2f776fd78802d7a3e549c3168e9c554 ""
-  "sec/1_intro.tex" 1769342368 3496 b154faed814103698ccaaab8eaa654cc ""
+  "sec/0_abstract.tex" 1769618882 2011 d88d76a32926a70bd61445a69d3cf2bd ""
+  "sec/1_intro.tex" 1769618922 3499 7ea1e46ba82a73b8c661769d6f586283 ""
   "sec/2_related_work.tex" 1769342877 3415 17a72c1a6e8607ccd99ba484d1bbeff4 ""
-  "sec/3_method.tex" 1769535092 5776 bb59775cd827945f9d8faa973796481e ""
-  "sec/4_experiments.tex" 1769603301 14763 331e3acafa93c5413ca3dc7c2f3b8908 ""
+  "sec/3_method.tex" 1769615015 5954 c6cee7ab53c80e05aa27ce2648834a07 ""
+  "sec/4_experiments.tex" 1769618759 22347 e702341611b8c72ff67bdd8fed53306e ""
   "sec/5_conclusion.tex" 1769344144 2476 3f98ea0be08455c69cafa213a3a25992 ""
   (generated)
   "main.aux"

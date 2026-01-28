@@ -33,7 +33,7 @@ To enable a more fine-grained analysis, we additionally report \emph{per-categor
 This analysis highlights differences in correspondence accuracy across object categories with varying degrees of deformation and visual complexity.
 
 Finally, we report \emph{per-image} PCK statistics by computing, for each image pair, the fraction of correctly matched keypoints and then aggregating these values across the dataset.
-For per-image evaluation, we report the mean, median, standard deviation, minimum, and maximum PCK, providing insight into both average performance and variability across image pairs.
+For per-image evaluation, we report the mean, median and standard deviation, providing insight into both average performance and variability across image pairs.
 
 %-------------------------------------------------------------------------
 
@@ -43,10 +43,10 @@ Input images are resized according to the backbone requirements: $518\times518$ 
 DINO models use ImageNet normalization, while SAM employs its official normalization scheme.
 
 Fine-tuning is conducted by unfreezing the last two transformer layers and the normalization layers for DINO models, while for SAM we unfreeze the last two layers and the neck component.
-All models are fine-tuned for a small number of epochs using a contrastive loss with a learning rate of $5e-6$, a temperature of $0.07$ and a batch size of $16$.
+All models are fine-tuned for a small number of epochs using a contrastive loss with a learning rate of $5\times10^{-6}$, a temperature $\tau = 0.07$ and a batch size of 16.
 
 Matching is performed using cosine similarity between dense features, followed by a global argmax.
-For refinement, we apply a window-based soft-argmax with temperature $T=0.01$ and window radius $W=5$.
+For refinement, we apply a window-based soft-argmax with temperature $\tau=0.01$ and window radius $W=5$.
 
 
 
@@ -58,7 +58,7 @@ We first evaluate the correspondence performance of pretrained visual foundation
 prediction to establish a strong baseline. Specifically, we compare DINOv2, DINOv3, and SAM by extracting frozen dense features from the final backbone
 layer and performing correspondence via cosine similarity.
 
-Table~\ref{tab:baseline_pck} reports the overall per-keypoint PCK scores at multiple thresholds.
+Table~\ref{tab:baseline_keypoint} reports the overall per-keypoint PCK scores at multiple thresholds.
 Both DINO-based models significantly outperform SAM across all evaluation thresholds. DINOv2 achieves the best baseline performance, reaching 54.16\% PCK@0.1
 and 70.78\% PCK@0.2, while DINOv3 shows comparable but slightly lower accuracy. These results indicate that self-supervised ViT models trained with
 contrastive objectives naturally encode strong semantic alignment cues, even without any task-specific adaptation.
@@ -67,7 +67,7 @@ In contrast, SAM exhibits substantially lower correspondence accuracy, with only
 thresholds and highlights the limitations of segmentation-oriented representations when directly applied to dense semantic correspondence without
 architectural or training adaptations.
 
-Per-image statistics, reported in Table~\ref{tab:baseline_stats}, further confirm these trends.
+Per-image statistics, reported in Table~\ref{tab:baseline_image}, further confirm these trends.
 DINO-based models show higher mean and median PCK values, as well as lower variance compared to SAM, indicating more stable correspondence
 predictions across image pairs.
 
@@ -77,11 +77,11 @@ Overall, these results establish DINOv2 and DINOv3 as strong baselines for seman
 \begin{table}[t]
     \centering
     \caption{\textbf{Overall per-keypoint PCK (\%) on SPair-71k using pretrained models without soft-argmax.}}
-    \label{tab:baseline_pck}
+    \label{tab:baseline_keypoint}
     \setlength{\tabcolsep}{2pt}
     \begin{tabular}{lcccc}
     \toprule
-    \textbf{Model} & \textbf{PCK@0.05} & \textbf{PCK@0.1} & \textbf{PCK@0.15} & \textbf{PCK@0.2} \\
+    Model & PCK@0.05 & PCK@0.1 & PCK@0.15 & PCK@0.2 \\
     \midrule
     DINOv2 ViT-B/14 & \textbf{36.75} & \textbf{54.16} & \textbf{64.07} & \textbf{70.78} \\
     DINOv3 ViT-B/16 & 35.86 & 54.05 & 63.63 & 69.55 \\
@@ -93,15 +93,15 @@ Overall, these results establish DINOv2 and DINOv3 as strong baselines for seman
 
 \begin{table}[t]
     \centering
-    \caption{\textbf{Per-image PCK@0.1 statistics (\%) on SPair-71k without soft-argmax.}}
-    \label{tab:baseline_stats}
-    \begin{tabular}{lccccc}
+    \caption{\textbf{Per-image PCK@0.1 statistics (\%) on SPair-71k using pretrained models without soft-argmax.}}
+    \label{tab:baseline_image}
+    \begin{tabular}{lccc}
     \toprule
-    \textbf{Model} & \textbf{Mean} & \textbf{Median} & \textbf{Std} & \textbf{Min} & \textbf{Max} \\
+    Model  & Mean & Median & Std \\
     \midrule
-    DINOv2 ViT-B/14 & \textbf{51.43} & 50.00 & 30.30 & 0.00 & 100.00 \\
-    DINOv3 ViT-B/16 & 48.54 & 50.00 & 30.92 & 0.00 & 100.00 \\
-    SAM ViT-B       & 19.97 & 15.38 & 21.38 & 0.00 & 100.00 \\
+    DINOv2 ViT-B/14 & \textbf{51.43} & 50.00 & 30.30 \\
+    DINOv3 ViT-B/16 & 48.54 & 50.00 & 30.92 \\
+    SAM ViT-B       & 19.97 & 15.38 & 21.38 \\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -110,10 +110,10 @@ Overall, these results establish DINOv2 and DINOv3 as strong baselines for seman
 
 %-------------------------------------------------------------------------
 
-\subsection{Fine-tuned models to beat the baselines}
+\subsection{Light Fine-tuning of Models without Soft-Argmax}
 
 
-\paragraph{Training Dynamics and Optimization Analysis}
+\paragraph{Training Dynamics}
 
 During contrastive fine-tuning tests, we observed the optimization behavior of DINOv2.
 The training loss decreases smoothly without signs of instability, while the validation PCK@0.1 increases
@@ -139,7 +139,7 @@ This confirms that high-level semantic representations are crucial for accurate 
 \begin{table}
     \centering
     \caption{
-        \textbf{Layer selection analysis for DINOv2 and DINOv3 on SPair-71k.}
+        \textbf{Layer selection for DINOv2 and DINOv3 on SPair-71k.}
         \textit{Top: DINOv2. Bottom: DINOv3}.
         Per-keypoint PCK results for selected intermediate transformer layers.
         Performance improves with depth, with the final layer achieving the highest scores,
@@ -168,104 +168,249 @@ This confirms that high-level semantic representations are crucial for accurate 
 
 \subsubsection{Quantitative Results}
 
-Table~\ref{tab:main_results} reports the quantitative results of fine-tuned models on SPair-71k.
-DINO-based models substantially outperform SAM across all PCK thresholds.
-DINOv3 achieves the highest overall performance, with $75.77\%$ PCK@0.1 and $86.23\%$ PCK@0.2, while DINOv2 performs slightly better at the strictest threshold (PCK@0.05).
+We report quantitative results for fine-tuned models without soft-argmax refinement in Table~\ref{tab:finetuned_keypoint}.
+All models are evaluated on SPair-71k using per-keypoint PCK at multiple thresholds, together with per-image statistics reported in Table~\ref{tab:finetuned_image}.
 
-\begin{table}
+Light fine-tuning yields substantial improvements over the training-free baselines for all backbones.
+In particular, DINOv2 improves from $54.16\%$ to $74.34\%$ at PCK@0.1 (+20.18\%), while DINOv3 improves from $54.05\%$ to $74.78\%$ (+20.73\%).
+These gains confirm that even limited adaptation of pretrained representations significantly enhances semantic correspondence accuracy.
+
+Among the evaluated models, DINOv3 achieves the best performance at relaxed thresholds, reaching $74.78\%$ PCK@0.1 and $86.03\%$ PCK@0.2.
+DINOv2 slightly outperforms DINOv3 at the strictest threshold (PCK@0.05), suggesting that its features remain more precise under tight localization constraints.
+Both DINO-based models largely outperform SAM across all thresholds.
+
+Although SAM also benefits from fine-tuning, with PCK@0.1 increasing from $23.24\%$ to $31.35\%$, its performance remains significantly lower than DINO-based models.
+This gap highlights architectural limitations of SAM for dense semantic correspondence, despite task-specific supervision.
+
+Per-image statistics further corroborate these findings.
+DINOv2 and DINOv3 achieve higher median PCK values and lower variance compared to SAM, indicating more consistent correspondence quality across image pairs.
+
+
+\begin{table}[t]
     \centering
     \setlength{\tabcolsep}{2pt}
-    \begin{tabular}{@{}lcccc@{}}
+    \caption{\textbf{Overall per-keypoint PCK (\%) results on SPair-71k for fine-tuned models without soft-argmax.}
+    Fine-tuning yields large improvements over training-free baselines, with DINO-based models significantly outperforming SAM.
+    In particular, DINOv2 improves from $54.16\%$ to $74.34\%$ at PCK@0.1 (+20.18\%), while DINOv3 improves from $54.05\%$ to $74.78\%$ (+20.73\%).}
+    \label{tab:finetuned_keypoint}
+    \begin{tabular}{lcccc}
         \toprule
         Model & PCK@0.05 & PCK@0.1 & PCK@0.15 & PCK@0.2 \\
         \midrule
-        SAM Finetuned & 19.23 & 31.87 & 40.81 & 47.87 \\
-        DINOv2 Finetuned & \textbf{60.02} & 74.89 & 81.39 & 85.37 \\
-        DINOv3 Finetuned & 58.15 & \textbf{75.77} & \textbf{82.34} & \textbf{86.23} \\
+        DINOv2 Finetuned & \textbf{58.69} & 74.34 & 81.12 & 85.25 \\
+        DINOv3 Finetuned & 56.38 & \textbf{74.78} & \textbf{81.87} & \textbf{86.03} \\
+        SAM Finetuned    & 18.83 & 31.35 & 40.38 & 47.63 \\
         \bottomrule
     \end{tabular}
-    \caption{\textbf{Per-keypoint PCK@0.1 results on SPair-71k for fine-tuned models.}}
-    \label{tab:main_results}
 \end{table}
-
-%-------------------------------------------------------------------------
-
-\paragraph{Effect of Fine-Tuning}
-
-Fine-tuning leads to consistent improvements across all models.
-For SAM, PCK@0.1 increases from $23.24\%$ to $31.87\%$, demonstrating that task-specific supervision is beneficial.
-However, even after fine-tuning, SAM remains significantly behind DINO-based models, indicating architectural limitations for dense correspondence.
-
-%-------------------------------------------------------------------------
-
-\subsubsection{Category-Level Analysis}
-
-We report per-category correspondence accuracy in Table~\ref{tab:category_pck} using PCK@0.1 to analyze model behavior across different object types.
-Overall, DINO-based models achieve consistently strong performance across nearly all categories, substantially outperforming SAM by a large margin.
-The gap is particularly evident for articulated and deformable objects such as \emph{bird}, \emph{cat}, \emph{dog}, \emph{horse}, and \emph{person}, where DINO models frequently exceed 75--90\% PCK@0.1, while SAM remains below 50\%.
-
-Rigid object categories such as \emph{train}, \emph{bus}, and \emph{car} also benefit from DINO representations, indicating that the learned features capture both semantic and structural regularities.
-While DINOv2 and DINOv3 exhibit comparable mean performance, category-specific differences can be observed.
-DINOv2 tends to perform better on several articulated categories, whereas DINOv3 achieves higher accuracy on visually distinctive or texture-rich classes such as \emph{train}, \emph{tvmonitor}, and \emph{pottedplant}.
-These complementary strengths are consistent with the global trends observed across PCK thresholds.
-
-In contrast, SAM shows limited effectiveness for fine-grained semantic correspondence, with particularly low performance on small objects and categories with high intra-class variability.
-This suggests that, despite its strong general-purpose representations, SAM features are less directly suited for precise keypoint localization without more extensive adaptation.
 
 \begin{table}[t]
-\centering
-\small
-\setlength{\tabcolsep}{5pt}
-\begin{tabular}{lccc}
-\toprule
-\textbf{Category} & \textbf{DINOv2} & \textbf{DINOv3} & \textbf{SAM} \\
-\midrule
-aeroplane     & 81.70 & 74.23 & 31.26 \\
-bicycle       & 65.96 & 65.91 & 22.92 \\
-bird          & 90.73 & 88.55 & 50.48 \\
-boat          & 55.88 & 53.87 & 21.15 \\
-bottle        & 60.88 & 64.53 & 32.20 \\
-bus           & 85.04 & 77.31 & 27.47 \\
-car           & 75.36 & 73.47 & 27.78 \\
-cat           & 88.14 & 84.62 & 45.00 \\
-chair         & 56.68 & 50.55 & 22.81 \\
-cow           & 86.47 & 86.13 & 34.83 \\
-dog           & 80.67 & 76.66 & 27.32 \\
-horse         & 77.38 & 76.45 & 26.98 \\
-motorbike     & 72.81 & 69.93 & 22.63 \\
-person        & 78.26 & 70.83 & 31.17 \\
-pottedplant   & 48.89 & 68.80 & 27.77 \\
-sheep         & 73.47 & 73.03 & 21.21 \\
-train         & 88.57 & 90.36 & 40.85 \\
-tvmonitor     & 63.31 & 85.31 & 34.81 \\
-\midrule
-\textbf{Mean} & \textbf{71.48} & \textbf{71.91} & \textbf{27.71} \\
-\bottomrule
-\end{tabular}
-\caption{
-\textbf{Per-category PCK@0.1 results on SPair-71k for fine-tuned models.}
-DINO-based models substantially outperform SAM across all categories, while DINOv2 and DINOv3 exhibit complementary strengths depending on object type.
-}
-\label{tab:category_pck}
+    \centering
+    \setlength{\tabcolsep}{6pt}
+    \caption{
+    \textbf{Per-image PCK@0.1 statistics (\%) on SPair-71k for fine-tuned models without soft-argmax.}
+    Higher mean and median values indicate better overall correspondence accuracy,
+    while lower standard deviation reflects more consistent performance across image pairs.}
+    \label{tab:finetuned_image}
+    \begin{tabular}{lccc}
+        \toprule
+        Model  & Mean & Median & Std \\
+        \midrule
+        DINOv2 Finetuned & \textbf{70.97} & \textbf{77.78} & 27.60 \\
+        DINOv3 Finetuned & 70.96 & 76.47 & \textbf{27.16} \\
+        SAM Finetuned    & 27.27 & 25.00 & 24.58 \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
+
 %-------------------------------------------------------------------------
 
-\subsection{Discussion}
+\subsubsection{Effect of Fine-Tuning}
+
+Fine-tuning consistently improves performance across all evaluated backbones.
+For DINOv2 and DINOv3, fine-tuning leads to gains of over 20\% at PCK@0.1 compared to the training-free baselines,
+demonstrating that limited task-specific supervision effectively adapts pretrained representations to semantic correspondence.
+
+SAM also benefits from fine-tuning, with PCK@0.1 improving from $23.24\%$ to $31.35\%$.
+The model is fine-tuned using a 2-layer adapter and neck with a learning rate of $5\times10^{-6}$, temperature $\tau = 0.07$, and batch size of 16.
+(Fig.~\ref{fig:SAM_finetuning} visualizes the fine-tuning dynamics.)
+
+However, despite these gains, SAM remains significantly behind DINO-based models across all thresholds.
+This suggests that, while fine-tuning is beneficial, architectural design plays a crucial role in determining correspondence performance,
+and models pretrained explicitly for representation learning exhibit stronger transferability to dense matching tasks.
+
+
+\begin{figure*}[t]
+    \centering
+    %\fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+    \includegraphics[width=\textwidth]{figures/SAM_finetuning.png}
+    \caption{\textbf{Visualization of SAM fine-tuning progress on SPair-71k.}
+    We report validation PCK, validation loss, and training loss across training steps, along with the learning rate schedule, epoch progression,
+    and effective batch size. The steady decrease in training and validation loss correlates with consistent improvements in validation PCK,
+    indicating stable convergence.}
+    \label{fig:SAM_finetuning}
+\end{figure*}
+
+
+%-------------------------------------------------------------------------
+
+\paragraph{Discussion}
 
 Our results highlight that self-supervised vision transformers trained for representation learning are inherently well-suited for semantic correspondence.
-DINOv2 provides strong localization accuracy, while DINOv3 demonstrates improved robustness at higher thresholds, suggesting better global alignment.
-Although fine-tuning improves SAM, its performance gap remains substantial, emphasizing that segmentation-oriented architectures are less effective for correspondence tasks.
 
+DINOv2 exhibits slightly stronger localization accuracy at strict thresholds, while DINOv3 demonstrates improved robustness at higher thresholds.
+This behavior suggests that DINOv3 encodes more globally consistent semantic alignments, whereas DINOv2 retains sharper local sensitivity.
 
+Although fine-tuning improves SAM performance, a substantial gap remains compared to DINO-based models,
+indicating that segmentation-oriented architectures are less effective for dense semantic correspondence under the same training regime.
 
 
 
 %-------------------------------------------------------------------------
 
-\subsection{Rerun evaluations with soft-argmax enabled}
+\subsection{Better Prediction Rule with Windowed Soft-Argmax}
+
+In this section, we evaluate the impact of replacing the standard argmax correspondence prediction with a windowed soft-argmax strategy.
+Instead of selecting the single most similar location in the similarity map, windowed soft-argmax computes a weighted average within a local neighborhood
+around the global maximum, enabling sub-pixel refinement and improved robustness to noisy similarity responses.
+We apply this prediction rule to all fine-tuned models without modifying the training procedure.
 
 %-------------------------------------------------------------------------
 
-\subsection{Generalization across dataset PF-Willow}
+\subsubsection{Quantitative Results}
+
+Table~\ref{tab:softargmax_keypoint} reports the overall per-keypoint PCK results obtained by fine-tuned models when using windowed soft-argmax.
+Compared to the standard argmax prediction, soft-argmax consistently improves correspondence accuracy across all thresholds for DINO-based models,
+while maintaining similar performance trends across backbones.
+
+DINOv3 achieves the best overall performance, reaching $75.77\%$ PCK@0.1 and $86.23\%$ PCK@0.2, while DINOv2 remains slightly superior at the
+strictest threshold (PCK@0.05). SAM benefits marginally from soft-argmax but remains significantly behind DINO-based approaches.
+
+
+\begin{table}[t]
+    \centering
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabular}{lcccc}
+        \toprule
+        Model & PCK@0.05 & PCK@0.1 & PCK@0.15 & PCK@0.2 \\
+        \midrule
+        DINOv2 & \textbf{60.02} & 74.89 & 81.39 & 85.37 \\
+        DINOv3 & 58.15 & \textbf{75.77} & \textbf{82.34} & \textbf{86.23} \\
+        SAM & 19.23 & 31.87 & 40.81 & 47.87 \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+    \textbf{Overall per-keypoint PCK (\%) results on SPair-71k with windowed soft-argmax.}
+    Soft-argmax consistently improves correspondence accuracy for DINO-based models, while SAM remains substantially less competitive.
+    }
+    \label{tab:softargmax_keypoint}
+\end{table}
+
+
+%-------------------------------------------------------------------------
+
+\paragraph{Per-Image Analysis}
+
+To better understand the robustness of correspondence predictions at the image level, we additionally report per-image PCK statistics.
+Table~\ref{tab:softargmax_image} summarizes the mean, median, and standard deviation of per-image PCK@0.1.
+Higher mean and median values indicate more reliable correspondence estimation across diverse image pairs,
+while lower variance reflects increased stability.
+
+
+\begin{table}[t]
+    \centering
+    \setlength{\tabcolsep}{6pt}
+    \begin{tabular}{lccc}
+        \toprule
+        Model & Mean & Median & Std \\
+        \midrule
+        DINOv2 & 71.48 & 77.78 & 27.46 \\
+        DINOv3 & \textbf{71.91} & \textbf{77.78} & \textbf{27.05} \\
+        SAM & 27.71 & 25.00 & 24.81 \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+    \textbf{Per-image PCK@0.1 (\%) statistics on SPair-71k with windowed soft-argmax.}
+    DINO-based models achieve high mean and median performance, indicating robust correspondence across image pairs,
+    while SAM exhibits lower accuracy and higher variability.
+    }
+    \label{tab:softargmax_image}
+\end{table}
+
+
+%-------------------------------------------------------------------------
+
+\paragraph{Per-Category Analysis}
+
+We further analyze correspondence performance at the category level to better understand model behavior across object types.
+Table~\ref{tab:softargmax_category} reports per-category PCK@0.1 results for fine-tuned models using windowed soft-argmax.
+
+DINO-based models exhibit strong and consistent performance across most categories, particularly on articulated objects such as \emph{bird}, \emph{cat}, \emph{dog}, and \emph{cow},
+as well as rigid objects like \emph{train} and \emph{bus}, where PCK@0.1 often exceeds $85\%$.
+DINOv2 tends to perform slightly better on categories requiring precise local localization, while DINOv3 shows improved robustness on categories with
+larger appearance variations, such as \emph{pottedplant} and \emph{tvmonitor}.
+
+In contrast, SAM consistently underperforms across all categories.
+The gap is particularly pronounced on small or highly deformable objects, such as \emph{bicycle}, \emph{boat}, and \emph{sheep},
+indicating that segmentation-oriented representations are less effective for fine-grained semantic correspondence.
+Overall, these results confirm that DINO-based representations generalize well across object categories,
+while SAM struggles to capture discriminative part-level correspondences.
+
+
+\begin{table}
+    \centering
+    \setlength{\tabcolsep}{8pt}
+    \begin{tabular}{lccc}
+        \toprule
+        Category & DINOv2 & DINOv3 & SAM \\
+        \midrule
+        aeroplane     & 81.70 & 74.23 & 31.26 \\
+        bicycle       & 65.96 & 65.91 & \textcolor{red}{22.92} \\
+        bird          & \textbf{90.73} & 88.55 & 50.48 \\
+        boat          & 55.88 & 53.87 & 21.15 \\
+        bottle        & 60.88 & 64.53 & 32.20 \\
+        bus           & 85.04 & 77.31 & 27.47 \\
+        car           & 75.36 & 73.47 & 27.78 \\
+        cat           & \textbf{88.14} & 84.62 & 45.00 \\
+        chair         & 56.68 & 50.55 & 22.81 \\
+        cow           & 86.47 & 86.13 & 34.83 \\
+        dog           & 80.67 & 76.66 & 27.32 \\
+        horse         & 77.38 & 76.45 & 26.98 \\
+        motorbike     & 72.81 & 69.93 & 22.63 \\
+        person        & 78.26 & 70.83 & 31.17 \\
+        pottedplant   & 48.89 & \textbf{68.80} & 27.77 \\
+        sheep         & 73.47 & 73.03 & \textcolor{red}{21.21} \\
+        train         & 88.57 & \textbf{90.36} & 40.85 \\
+        tvmonitor     & 63.31 & \textbf{85.31} & 34.81 \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+    \textbf{Per-category PCK@0.1 (\%) on SPair-71k with windowed soft-argmax.}
+    Higher values indicate more accurate semantic correspondence.
+    DINO-based models achieve consistently strong performance across categories,
+    while SAM exhibits substantially lower accuracy, especially on small or deformable objects.
+    }
+    \label{tab:softargmax_category}
+\end{table}
+
+
+%-------------------------------------------------------------------------
+
+\subsubsection{Discussion}
+
+Windowed soft-argmax consistently improves correspondence accuracy without requiring additional training
+or architectural modifications.
+The gains are particularly evident for DINO-based models, suggesting that their dense similarity maps
+contain well-structured local neighborhoods that benefit from soft spatial aggregation.
+In contrast, SAM shows limited improvement, indicating that its similarity responses are less suitable
+for refined correspondence localization.
+These results confirm that prediction strategies play a crucial role in semantic correspondence performance
+and that simple post-processing can significantly enhance pretrained representations.
+
+
+
+%-------------------------------------------------------------------------
+
+\subsection{Generalization on the PF-Willow dataset}
 

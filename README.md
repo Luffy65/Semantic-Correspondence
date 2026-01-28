@@ -18,4 +18,4 @@ In the baselines, our "overall" PCK is "per-keypoint" (total correct / total key
 
 ## Explaining results
 
-SAM performs way worse than the dino models. This is because SAM features are optimized for segmentation boundaries, not semantic similarity. They encode "what's an object edge" rather than "what's semantically similar." Also, SAM 1 was designed to be prompted with visual inputs (points, bounding boxes, or masks), but in this baseline we're not passing any prompts. SAM features aren't well-suited for our task.
+SAM performs way worse than the DINO models. This is because SAM features are optimized for segmentation boundaries, not semantic similarity. They encode "what's an object edge" rather than "what's semantically similar." Also, SAM 1 was designed to be prompted with visual inputs (points, bounding boxes, or masks), but in this baseline we're not passing any prompts. SAM features aren't well-suited for our task.

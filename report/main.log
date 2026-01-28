@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.25)  28 JAN 2026 13:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.25)  28 JAN 2026 17:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -417,46 +417,52 @@ LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
 
 
 ]) (sec/2_related_work.tex) (sec/3_method.tex [2]) (sec/4_experiments.tex [3]
-Overfull \hbox (39.3628pt too wide) in paragraph at lines 82--91
- [][] 
- []
-
-
-Overfull \hbox (34.72295pt too wide) in paragraph at lines 98--107
+Overfull \hbox (32.3628pt too wide) in paragraph at lines 82--91
  [][] 
  []
 
 [4]
-Overfull \hbox (30.9927pt too wide) in paragraph at lines 178--187
+Overfull \hbox (34.9927pt too wide) in paragraph at lines 196--205
  [][] 
  []
 
-) (sec/5_conclusion.tex [5]) (main.bbl (main.brf)
+[5]
+<figures/SAM_finetuning.png, id=187, 1332.98pt x 576.1525pt>
+File: figures/SAM_finetuning.png Graphic file (type png)
+<use figures/SAM_finetuning.png>
+Package pdftex.def Info: figures/SAM_finetuning.png  used on input line 247.
+(pdftex.def)             Requested size: 496.85625pt x 214.75552pt.
+
+Overfull \hbox (2.4931pt too wide) in paragraph at lines 294--306
+ [][] 
+ []
+
+[6]) (sec/5_conclusion.tex [7 <./figures/SAM_finetuning.png>]) (main.bbl (main.brf)
 \tf@brf=\write4
 \openout4 = `main.brf'.
 
-) [6] (main.aux)
+) [8] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1ECC685BA21DDF751D70E3B59EC26A89;3334.
+(rerunfilecheck)             Checksum: F5C3AC4E3DC23534962A9766A38DFFBF;3584.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: DF7D86802B9D564FB9904554BADDDE2F;1681.
+(rerunfilecheck)             Checksum: F0EEEBB2C1648069D6612FFB30952FDD;1729.
  ) 
 Here is how much of TeX's memory you used:
- 14849 strings out of 467871
- 247890 string characters out of 5418375
- 718957 words of memory out of 5000000
- 43463 multiletter control sequences out of 15000+600000
+ 14895 strings out of 467871
+ 248844 string characters out of 5418375
+ 717957 words of memory out of 5000000
+ 43496 multiletter control sequences out of 15000+600000
  656673 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,9n,98p,595b,459s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (6 pages, 241911 bytes).
+ 90i,9n,98p,626b,459s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/antea/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (8 pages, 389321 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 50 named destinations out of 1000 (max. 500000)
- 145 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 329 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 

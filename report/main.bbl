@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,6 +11,11 @@ Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jegou, Julien Mairal, Piotr
   Bojanowski, and Armand Joulin.
 \newblock Emerging properties in self-supervised vision transformers.
 \newblock In \emph{ICCV}, 2021.
+
+\bibitem[Ham et~al.(2017)Ham, Cho, Schmid, and Ponce]{ham2016}
+Bumsub Ham, Minsu Cho, Cordelia Schmid, and Jean Ponce.
+\newblock Proposal flow: Semantic correspondences from object proposals.
+\newblock In \emph{arXiv:1703.07144}, 2017.
 
 \bibitem[Kirillov et~al.(2023)Kirillov, Mintun, Ravi, Mao, Rolland, Gustafson,
   Xiao, Whitehead, Berg, Lo, Doll{\'a}r, and Girshick]{kirillov2023segment}

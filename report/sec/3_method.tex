@@ -24,9 +24,10 @@ models: DINOv2~\cite{oquab2023dinov2}, DINOv3~\cite{simeoni2025dinov3}, and Segm
 For each source keypoint $p_s$, we extract the corresponding feature vector $f_s = F(I_s)[p_s]$ and compute cosine similarity with all spatial locations
 in the target feature map $F(I_t)$. The predicted correspondence is obtained by selecting the target location that maximizes the similarity score:
 
-\[
-\hat{p}_t = \arg\max_{r} \ \cos\big(f_s, F(I_t)[r]\big),
-\]
+\begin{equation}
+    \hat{p}_t = \arg\max_{r} \ \cos\big(f_s, F(I_t)[r]\big),
+\label{eq:argmax}
+\end{equation}
 
 where $r$ indexes spatial positions in the target feature map. This simple global argmax matching serves as a strong baseline for semantic correspondence.
 
@@ -48,11 +49,12 @@ keypoint $p_s$ with feature vector $f_s$ and its ground-truth correspondence $p_
 high similarity between matching features while discouraging similarity with non-matching target locations. Specifically, for a batch of $N$ keypoints,
 we optimize a contrastive objective of the form:
 
-\[
-\mathcal{L} = -\frac{1}{N} \sum_{i=1}^{N}
-\log \frac{\exp(\cos(f_s^i, f_t^i) / \tau)}
-{\sum_{j=1}^{N} \exp(\cos(f_s^i, f_t^j) / \tau)},
-\]
+\begin{equation}
+    \mathcal{L} = -\frac{1}{N} \sum_{i=1}^{N}
+    \log \frac{\exp(\cos(f_s^i, f_t^i) / \tau)}
+    {\sum_{j=1}^{N} \exp(\cos(f_s^i, f_t^j) / \tau)},
+\label{eq:contrastive_loss}
+\end{equation}
 
 where $\tau$ is a temperature hyperparameter. This formulation encourages discriminative feature alignment across image pairs while remaining robust
 to intra-class variability and geometric differences.
@@ -67,10 +69,11 @@ sub-pixel localization, we adopt a windowed soft-argmax refinement strategy insp
 For each source keypoint, we first obtain a coarse correspondence $\hat{p}_t$ using global argmax. We then define a local square window centered
 at $\hat{p}_t$ with radius $r$. Within this window, we apply a softmax over similarity scores and compute a weighted average of spatial coordinates:
 
-\[
-\tilde{p}_t = \sum_{r \in \mathcal{W}(\hat{p}_t)} r \cdot 
-\frac{\exp(\alpha \cdot S(r))}{\sum_{k \in \mathcal{W}(\hat{p}_t)} \exp(\alpha \cdot S(k))},
-\]
+\begin{equation}
+    \tilde{p}_t = \sum_{r \in \mathcal{W}(\hat{p}_t)} r \cdot 
+    \frac{\exp(\alpha \cdot S(r))}{\sum_{k \in \mathcal{W}(\hat{p}_t)} \exp(\alpha \cdot S(k))},
+\label{eq:soft_argmax}
+\end{equation}
 
 where $S(r)$ denotes the cosine similarity at position $r$, $\mathcal{W}(\hat{p}_t)$ is the local window, and $\alpha$ controls the sharpness of
 the distribution. We empirically observe that large window radii (\eg $r=10$) degrade performance, and therefore use smaller values
@@ -81,7 +84,9 @@ selected through validation.
 \subsection{Implementation Details}
 
 Images are resized according to the backbone requirements: $518 \times 518$ for DINOv2, $512 \times 512$ for DINOv3 and for SAM.
+
 For DINO-based models, we apply ImageNet normalization with mean $(0.485, 0.456, 0.406)$ and standard deviation $(0.229, 0.224, 0.225)$.
 For SAM, we use the model-specific normalization with mean $(123.675, 116.28, 103.53)$ and standard deviation $(58.395, 57.12, 57.375)$.
+
 All models are implemented in PyTorch and optimized using AdamW during fine-tuning.
 
