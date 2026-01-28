@@ -38,10 +38,10 @@ While the training-free setting already provides strong correspondence performan
 to the semantic correspondence task. Fine-tuning is performed using keypoint supervision from SPair-71k by unfreezing only a limited subset of layers
 for each backbone, while keeping the remaining parameters frozen.
 
-We experiment with unfreezing the last few transformer blocks together with the final normalization layer. In particular, for
-DINOv2 we report results obtained by unfreezing the last transformer layer and the normalization layer. For SAM, we fine-tune the last 2 layers and the neck component
-while keeping the remaining layers of the encoder frozen. This design allows the model to adapt to correspondence-specific cues while preserving most of the general semantic
-structure learned during pretraining.
+We experiment with unfreezing the last few transformer blocks together with the final normalization layer. In particular, for DINO models we report results
+obtained by unfreezing the last two transformer layer and the normalization layer. For SAM, we fine-tune the last two layers and the neck component
+while keeping the remaining layers of the encoder frozen.
+This design allows the model to adapt to correspondence-specific cues while preserving most of the general semantic structure learned during pretraining.
 
 Training is supervised using a contrastive loss defined on feature representations at corresponding and non-corresponding locations. Given a source
 keypoint $p_s$ with feature vector $f_s$ and its ground-truth correspondence $p_t$ in the target image with feature $f_t$, the objective encourages
@@ -73,7 +73,7 @@ at $\hat{p}_t$ with radius $r$. Within this window, we apply a softmax over simi
 \]
 
 where $S(r)$ denotes the cosine similarity at position $r$, $\mathcal{W}(\hat{p}_t)$ is the local window, and $\alpha$ controls the sharpness of
-the distribution. We empirically observe that large window radii (\eg $r=5$ or $r=10$) degrade performance, and therefore use smaller values
+the distribution. We empirically observe that large window radii (\eg $r=10$) degrade performance, and therefore use smaller values
 selected through validation.
 
 %-------------------------------------------------------------------------
@@ -83,5 +83,5 @@ selected through validation.
 Images are resized according to the backbone requirements: $518 \times 518$ for DINOv2, $512 \times 512$ for DINOv3 and for SAM.
 For DINO-based models, we apply ImageNet normalization with mean $(0.485, 0.456, 0.406)$ and standard deviation $(0.229, 0.224, 0.225)$.
 For SAM, we use the model-specific normalization with mean $(123.675, 116.28, 103.53)$ and standard deviation $(58.395, 57.12, 57.375)$.
-% All models are implemented in PyTorch and optimized using AdamW during fine-tuning.
+All models are implemented in PyTorch and optimized using AdamW during fine-tuning.
 

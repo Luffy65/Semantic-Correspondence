@@ -1,22 +1,22 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Caron et~al.(2021)Caron, Touvron, Misra, Jegou, Mairal, Bojanowski, and Joulin]{caron2021emerging}
-Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jegou, Julien Mairal, Piotr Bojanowski, and Armand Joulin.
+\bibitem[Caron et~al.(2021)Caron, Touvron, Misra, Jegou, Mairal, Bojanowski,
+  and Joulin]{caron2021emerging}
+Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jegou, Julien Mairal, Piotr
+  Bojanowski, and Armand Joulin.
 \newblock Emerging properties in self-supervised vision transformers.
 \newblock In \emph{ICCV}, 2021.
 
-\bibitem[Ham et~al.(2017)Ham, Cho, Schmid, and Ponce]{ham2016}
-Bumsub Ham, Minsu Cho, Cordelia Schmid, and Jean Ponce.
-\newblock Proposal flow: Semantic correspondences from object proposals.
-\newblock In \emph{arXiv:1703.07144}, 2017.
-
-\bibitem[Kirillov et~al.(2023)Kirillov, Mintun, Ravi, Mao, Rolland, Gustafson, Xiao, Whitehead, Berg, Lo, Doll{\'a}r, and Girshick]{kirillov2023segment}
-Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chlo{\'e} Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander~C. Berg, Wan-Yen Lo, Piotr Doll{\'a}r, and Ross Girshick.
+\bibitem[Kirillov et~al.(2023)Kirillov, Mintun, Ravi, Mao, Rolland, Gustafson,
+  Xiao, Whitehead, Berg, Lo, Doll{\'a}r, and Girshick]{kirillov2023segment}
+Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chlo{\'e} Rolland,
+  Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander~C. Berg, Wan-Yen Lo,
+  Piotr Doll{\'a}r, and Ross Girshick.
 \newblock Segment anything.
 \newblock In \emph{ICCV}, 2023.
 
@@ -25,8 +25,11 @@ Juhong Min, Jongmin Lee, Jean Ponce, and Minsu Cho.
 \newblock Spair-71k: A large-scale benchmark for semantic correspondence.
 \newblock In \emph{ICCV}, 2019.
 
-\bibitem[Oquab et~al.(2023)Oquab, Darcet, Moutakanni, Vo, Szafraniec, Khalidov, Fernandez, Courville, Bojanowski, and Joulin]{oquab2023dinov2}
-Maxime Oquab, Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Aaron Courville, Piotr Bojanowski, and Armand Joulin.
+\bibitem[Oquab et~al.(2023)Oquab, Darcet, Moutakanni, Vo, Szafraniec, Khalidov,
+  Fernandez, Courville, Bojanowski, and Joulin]{oquab2023dinov2}
+Maxime Oquab, Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, Huy Vo, Marc
+  Szafraniec, Vasil Khalidov, Pierre Fernandez, Aaron Courville, Piotr
+  Bojanowski, and Armand Joulin.
 \newblock Dinov2: Learning robust visual features without supervision.
 \newblock In \emph{CVPR}, 2023.
 
@@ -35,19 +38,27 @@ Oriane Simeoni et~al.
 \newblock Dinov3.
 \newblock 2025.
 
-\bibitem[Tang et~al.(2023)Tang, Jia, Wang, Phoo, and Hariharan]{tang2023emergent}
-Luming Tang, Menglin Jia, Qianqian Wang, Cheng~Perng Phoo, and Bharath Hariharan.
+\bibitem[Tang et~al.(2023)Tang, Jia, Wang, Phoo, and
+  Hariharan]{tang2023emergent}
+Luming Tang, Menglin Jia, Qianqian Wang, Cheng~Perng Phoo, and Bharath
+  Hariharan.
 \newblock Emergent correspondence from image diffusion.
 \newblock In \emph{NeurIPS}, 2023.
 
-\bibitem[Zhang et~al.(2023)Zhang, Herrmann, Hur, Polanía, Jampani, Sun, and Yang]{zhang2023tale}
-Junyi Zhang, Charles Herrmann, Junhwa Hur, Luisa Polanía, Varun Jampani, Deqing Sun, and Ming-Hsuan Yang.
-\newblock A tale of two features: Stable diffusion complements dino for zero-shot semantic correspondence.
+\bibitem[Zhang et~al.(2023)Zhang, Herrmann, Hur, Polanía, Jampani, Sun, and
+  Yang]{zhang2023tale}
+Junyi Zhang, Charles Herrmann, Junhwa Hur, Luisa Polanía, Varun Jampani,
+  Deqing Sun, and Ming-Hsuan Yang.
+\newblock A tale of two features: Stable diffusion complements dino for
+  zero-shot semantic correspondence.
 \newblock In \emph{NeurIPS}, 2023.
 
-\bibitem[Zhang et~al.(2024)Zhang, Herrmann, Hur, Chen, Jampani, Sun, and Yang]{zhang2024telling}
-Junyi Zhang, Charles Herrmann, Junhwa Hur, Eric Chen, Varun Jampani, Deqing Sun, and Ming-Hsuan Yang.
-\newblock Telling left from right: Identifying geometry-aware semantic correspondence.
+\bibitem[Zhang et~al.(2024)Zhang, Herrmann, Hur, Chen, Jampani, Sun, and
+  Yang]{zhang2024telling}
+Junyi Zhang, Charles Herrmann, Junhwa Hur, Eric Chen, Varun Jampani, Deqing
+  Sun, and Ming-Hsuan Yang.
+\newblock Telling left from right: Identifying geometry-aware semantic
+  correspondence.
 \newblock In \emph{CVPR}, 2024.
 
 \end{thebibliography}

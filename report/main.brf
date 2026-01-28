@@ -3,7 +3,6 @@
 \backcite {simeoni2025dinov3}{{1}{(document)}{Doc-Start}}
 \backcite {kirillov2023segment}{{1}{(document)}{Doc-Start}}
 \backcite {zhang2024telling}{{1}{(document)}{Doc-Start}}
-\backcite {ham2016}{{1}{(document)}{Doc-Start}}
 \backcite {tang2023emergent}{{1}{1}{section.1}}
 \backcite {zhang2024telling}{{1}{1}{section.1}}
 \backcite {caron2021emerging}{{1}{1}{section.1}}
@@ -28,7 +27,7 @@
 \backcite {simeoni2025dinov3}{{3}{3.2}{subsection.3.2}}
 \backcite {kirillov2023segment}{{3}{3.2}{subsection.3.2}}
 \backcite {zhang2024telling}{{3}{3.4}{subsection.3.4}}
-\backcite {oquab2023dinov2}{{3}{4.1}{subsection.4.1}}
-\backcite {simeoni2025dinov3}{{3}{4.1}{subsection.4.1}}
-\backcite {kirillov2023segment}{{3}{4.1}{subsection.4.1}}
-\backcite {min2019spair}{{4}{4.2}{subsection.4.2}}
+\backcite {oquab2023dinov2}{{3}{4}{section*.6}}
+\backcite {simeoni2025dinov3}{{3}{4}{section*.6}}
+\backcite {kirillov2023segment}{{3}{4}{section*.6}}
+\backcite {min2019spair}{{4}{4}{section*.7}}
