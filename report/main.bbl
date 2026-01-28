@@ -41,7 +41,7 @@ Maxime Oquab, Timoth{\'e}e Darcet, Th{\'e}o Moutakanni, Huy Vo, Marc
 \bibitem[Simeoni et~al.(2025)]{simeoni2025dinov3}
 Oriane Simeoni et~al.
 \newblock Dinov3.
-\newblock 2025.
+\newblock \emph{arXiv preprint}, 2025.
 
 \bibitem[Tang et~al.(2023)Tang, Jia, Wang, Phoo, and
   Hariharan]{tang2023emergent}

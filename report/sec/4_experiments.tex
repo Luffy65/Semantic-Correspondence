@@ -46,7 +46,7 @@ Fine-tuning is conducted by unfreezing the last two transformer layers and the n
 All models are fine-tuned for a small number of epochs using a contrastive loss with a learning rate of $5\times10^{-6}$, a temperature $\tau = 0.07$ and a batch size of 16.
 
 Matching is performed using cosine similarity between dense features, followed by a global argmax.
-For refinement, we apply a window-based soft-argmax with temperature $\tau=0.01$ and window radius $W=5$.
+For refinement, we apply a window-based soft-argmax with temperature $\alpha=0.01$ and window radius $W=5$.
 
 
 
@@ -399,18 +399,94 @@ while SAM struggles to capture discriminative part-level correspondences.
 
 \subsubsection{Discussion}
 
-Windowed soft-argmax consistently improves correspondence accuracy without requiring additional training
-or architectural modifications.
-The gains are particularly evident for DINO-based models, suggesting that their dense similarity maps
-contain well-structured local neighborhoods that benefit from soft spatial aggregation.
-In contrast, SAM shows limited improvement, indicating that its similarity responses are less suitable
-for refined correspondence localization.
-These results confirm that prediction strategies play a crucial role in semantic correspondence performance
-and that simple post-processing can significantly enhance pretrained representations.
+Windowed soft-argmax consistently improves correspondence accuracy without requiring additional training or architectural modifications.
+The gains are particularly evident for DINO-based models, suggesting that their dense similarity maps contain well-structured local neighborhoods
+that benefit from soft spatial aggregation.
+In contrast, SAM shows limited improvement, indicating that its similarity responses are less suitable for refined correspondence localization.
+These results confirm that prediction strategies play a crucial role in semantic correspondence performance and that simple post-processing can
+significantly enhance pretrained representations.
 
 
 
 %-------------------------------------------------------------------------
 
-\subsection{Generalization on the PF-Willow dataset}
+\subsection{Generalization on the PF-Willow Dataset}
+
+To evaluate the generalization capability of our fine-tuned models, we report results on the PF-Willow dataset without any additional training.
+PF-Willow features large viewpoint changes and significant intra-class variability, making it a challenging benchmark for semantic correspondence.
+
+Table~\ref{tab:pfwillow_keypoint} reports overall per-keypoint PCK results.
+Both DINO-based models generalize remarkably well, achieving over $91\%$ PCK@0.1, with DINOv3 obtaining the best overall performance.
+In contrast, SAM exhibits a substantial performance gap, confirming that segmentation-oriented representations generalize poorly to correspondence
+tasks outside the training distribution.
+
+We further analyze performance across object categories to assess robustness under different object scales and appearance variations.
+Table~\ref{tab:pfwillow_category} reports per-category PCK@0.1 results.
+
+These results demonstrate that light fine-tuning combined with a windowed soft-argmax prediction rule yields representations that transfer effectively
+across datasets, without overfitting to SPair-71k.
+
+
+\begin{table}[t]
+    \centering
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabular}{lcccc}
+        \toprule
+        Model & PCK@0.05 & PCK@0.1 & PCK@0.15 & PCK@0.2 \\
+        \midrule
+        DINOv2 & 73.18 & 91.78 & 96.86 & 98.26 \\
+        DINOv3 & \textbf{75.56} & \textbf{93.53} & \textbf{97.18} & \textbf{98.39} \\
+        SAM & 45.37 & 64.29 & 74.89 & 81.59 \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+    \textbf{Overall per-keypoint PCK (\%) on PF-Willow.}
+    DINO-based models generalize strongly to unseen data, while SAM shows limited transferability.
+    }
+    \label{tab:pfwillow_keypoint}
+\end{table}
+
+
+\begin{table}[t]
+    \centering
+    \setlength{\tabcolsep}{6pt}
+    \begin{tabular}{lccc}
+        \toprule
+        Category & DINOv2 & DINOv3 & SAM \\
+        \midrule
+        CAR(G)          & 93.11 & \textbf{94.44} & 71.22 \\
+        CAR(M)          & \textbf{92.33} & 90.67 & 65.78 \\
+        CAR(S)          & \textbf{96.56} & 94.00 & 73.22 \\
+        DUCK(S)         & 93.11 & \textbf{96.33} & 71.89 \\
+        MOTORBIKE(G)    & 86.33 & \textbf{91.11} & \textcolor{red}{49.22} \\
+        MOTORBIKE(M)    & 88.33 & \textbf{94.33} & 51.00 \\
+        MOTORBIKE(S)    & 87.89 & \textbf{93.00} & 49.33 \\
+        WINEBOTTLE(M)   & \textbf{95.00} & 93.89 & 68.33 \\
+        WINEBOTTLE(WC)  & 88.44 & \textbf{91.22} & 62.44 \\
+        WINEBOTTLE(WOC) & \textbf{96.67} & 96.33 & 80.44 \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+    \textbf{Per-category PCK@0.1 (\%) on PF-Willow.}
+    Higher values indicate better correspondence accuracy.
+    DINO-based models perform consistently well across categories and object scales,
+    while SAM shows significantly lower accuracy, particularly on articulated objects.
+    }
+    \label{tab:pfwillow_category}
+\end{table}
+
+
+%-------------------------------------------------------------------------
+
+\paragraph{PF-Willow Dataset Structure}
+
+PF-Willow defines a limited set of object categories, each evaluated under multiple controlled acquisition conditions.
+
+The parenthetical labels used in category names (\eg \textit{CAR(G)}, \textit{WINEBOTTLE(WOC)}) denote specific variations in scale, viewpoint,
+object multiplicity, and contextual clutter.
+For instance, suffixes such as \textit{(S)}, \textit{(M)}, and \textit{(G)} refer to small-, medium-, and general-scale settings,
+while labels like \textit{(WC)} and \textit{(WOC)} indicate the presence or absence of surrounding context.
+
+This design enables a fine-grained evaluation of semantic correspondence robustness under controlled but challenging conditions,
+making PF-Willow particularly suitable for assessing cross-dataset generalization.
 
