@@ -185,7 +185,7 @@ See `requirements.txt` for all dependencies.
 
 3. **Fine-tune models**: Uncomment fine-tuning cells to adapt last layers
 
-4. **Evaluate results**: Run `task4.ipynb` to compute PCK metrics and generate reports
+4. **Evaluate results**: Run the specific cells in `main.ipynb` and `task4.ipynb` to compute PCK metrics and generate reports
 
 ---
 
@@ -203,4 +203,3 @@ See `requirements.txt` for all dependencies.
 
 - [Google Drive - Data Folder](https://drive.google.com/drive/folders/1fEWpONVft365O47IhEDLKZ2a0WkAuhyP?usp=sharing)
 - [Colab Wandb](https://colab.research.google.com/github/wandb/examples/blob/master/colabs/intro/Intro_to_Weights_%26_Biases.ipynb)
-
