@@ -1,8 +1,8 @@
-PWD /Users/anton2/Desktop/Desktop - MacBook Air di Antonio/AdvancedMachineLearning/Project/Semantic-Correspondence/report
+PWD /Users/luffy/Desktop/AdvancedMachineLearning/Project/Semantic-Correspondence/report
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/anton2/Desktop/Desktop - MacBook Air di Antonio/AdvancedMachineLearning/Project/Semantic-Correspondence/report/rebuttal.tex
+INPUT /Users/luffy/Desktop/AdvancedMachineLearning/Project/Semantic-Correspondence/report/rebuttal.tex
 OUTPUT rebuttal.log
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/article.cls
@@ -798,7 +798,6 @@ INPUT rebuttal.brf
 INPUT ./rebuttal.brf
 INPUT ./rebuttal.brf
 OUTPUT rebuttal.brf
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1phv.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1phv.fd
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/psnfss/ot1phv.fd
@@ -829,8 +828,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT rebuttal.aux
 INPUT ./rebuttal.out
 INPUT ./rebuttal.out
@@ -847,4 +844,3 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
-INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb

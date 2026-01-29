@@ -46,7 +46,7 @@ Fine-tuning is conducted by unfreezing the last two transformer layers and the n
 All models are fine-tuned for a small number of epochs using a contrastive loss with a learning rate of $5\times10^{-6}$, a temperature $\tau = 0.07$ and a batch size of 16.
 
 Matching is performed using cosine similarity between dense features, followed by a global argmax.
-For refinement, we apply a window-based soft-argmax with temperature $\alpha=0.01$ and window radius $W=5$.
+For refinement, we apply a window-based soft-argmax with temperature $\alpha=0.01$ and window radius $r=5$.
 
 
 
@@ -368,7 +368,7 @@ while SAM struggles to capture discriminative part-level correspondences.
         aeroplane     & 81.70 & 74.23 & 31.26 \\
         bicycle       & 65.96 & 65.91 & \textcolor{red}{22.92} \\
         bird          & \textbf{90.73} & 88.55 & 50.48 \\
-        boat          & 55.88 & 53.87 & 21.15 \\
+        boat          & 55.88 & 53.87 & \textcolor{red}{21.15} \\
         bottle        & 60.88 & 64.53 & 32.20 \\
         bus           & 85.04 & 77.31 & 27.47 \\
         car           & 75.36 & 73.47 & 27.78 \\
